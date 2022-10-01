@@ -9,7 +9,6 @@ class Sql
 
     private $conn;
 
-    
 	public function __construct()
 	{
 		try{
@@ -22,6 +21,7 @@ class Sql
 			$this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
 			$this->conn->exec("set names utf8");
+			
 
 		} catch (Exception $e){
 			//echo "Erro conectando ao MySql " . $e->getMessage();
@@ -65,10 +65,7 @@ class Sql
 			//$arr = $stmt->errorInfo();
 			//print_r($arr);
 		} catch (PDOException $e){
-			//echo "Erro executando Query " . $e->getMessage();
-			//exit("Erro executando Query " . $e->getMessage());
-            throw new MyDatabaseException("Erro executando Select " . $e->getMessage());
-
+			throw new Exception("Erro executando Select " . $e->getMessage());
 		}
 
 	}
@@ -85,7 +82,7 @@ class Sql
 
 			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 		} catch (PDOException $e){
-			throw new MyDatabaseException("Erro executando Select " . $e->getMessage());
+			throw new Exception("Erro executando Select " . $e->getMessage());
 		}
 	}
 

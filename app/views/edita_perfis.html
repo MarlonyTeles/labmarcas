@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastro de Perfis</title>
+    <meta http-equiv=”Content-Type” content=”text/html; charset="UTF-8"″>
+    
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/labmarcas/app/scripts/perfil.js"></script>
+<body>
+    <form method="POST" id="frmPerfil" > 
+        <input type="hidden" name="id" id="txtId" value="0">
+        <table class="tbCadastro" border="1"> 
+            <tr>
+                <td>Descrição</td>
+                <td><input type="text" id="txtDescricao"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Gravar" onclick="save();"></td>
+                <td><input type="button" value="Listar" onclick="window.location.href='/labmarcas/app/views/lista_perfis.html'"></td>                
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
